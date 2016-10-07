@@ -140,30 +140,35 @@ L_Bones_Check:
         set @menuitems$[@c], "Take five bones.";
         set @menuid[@c], 0;
         set @c, @c + 1;
+        goto L_bones_four;
 
 L_bones_four:
         if (countitem("Bone") < 4) goto L_bones_three;
         set @menuitems$[@c], "Take four bones.";
         set @menuid[@c], 1;
         set @c, @c + 1;
+        goto L_bones_three;
 
 L_bones_three:
         if (countitem("Bone") < 3) goto L_bones_two;
         set @menuitems$[@c], "Take three bones.";
         set @menuid[@c], 2;
         set @c, @c + 1;
+        goto L_bones_two;
 
 L_bones_two:
         if (countitem("Bone") < 2) goto L_bones_one;
         set @menuitems$[@c], "Take two bones.";
         set @menuid[@c], 3;
         set @c, @c + 1;
+        goto L_bones_one;
 
 L_bones_one:
         if (countitem("Bone") < 1) goto L_bones_menu;
         set @menuitems$[@c], "Take one bone.";
         set @menuid[@c], 4;
         set @c, @c + 1;
+        goto L_bones_menu;
 
 L_bones_menu:
         set @menuitems$[@c], "I don't have any bones.";
@@ -197,7 +202,7 @@ L_bones_menu_select:
         delitem "Bone", @bonecount;
         set @bonecount, @bonecount + 1;
         set @hween10_givebones, 0;
-
+        goto L_Bone_Loop;
 // in a rush, raising and then lowering is the best thing I can think of to make the loop work properly.
 
 L_Bone_Loop:
@@ -267,6 +272,7 @@ L_Worms:
         mes "";
         mes "\"True... but they are sssmall, and not asss sssweet asss what I'd like!\"";
         next;
+    goto L_Request_Sweets;
 
 L_Request_Sweets:
         mes "[Gak]";
@@ -330,24 +336,28 @@ L_Collecting_Sweets:
         set @menuitems$[@c], "Tonori Delight.";
         set @menuid[@c], 0;
         set @c, @c + 1;
+        goto L_Sweets_Marshmallow;
 
 L_Sweets_Marshmallow:
         if (countitem("Marshmallow") < 1) goto L_Sweets_JellySkull;
         set @menuitems$[@c], "Marshmallow.";
         set @menuid[@c], 1;
         set @c, @c + 1;
+        goto L_Sweets_JellySkull;
 
 L_Sweets_JellySkull:
         if (countitem("JellySkull") < 1) goto L_Sweets_CandyPumpkin;
         set @menuitems$[@c], "Jelly Skull.";
         set @menuid[@c], 2;
         set @c, @c + 1;
+        goto L_Sweets_CandyPumpkin;
 
 L_Sweets_CandyPumpkin:
         if (countitem("CandyPumpkin") < 1) goto L_Sweets_Menu;
         set @menuitems$[@c], "Candy Pumpkin.";
         set @menuid[@c], 3;
         set @c, @c + 1;
+        goto L_Sweets_Menu;
 
 L_Sweets_Menu:
         set @menuitems$[@c], "I don't have any sweets.";
@@ -451,7 +461,6 @@ L_Hunger_Sated:
                 "Okay, whatever. Now how about my reward?", L_Reward,
                 "I'm pleased to hear it. Now... a reward, perhaps?", L_Polite_Request,
                 "It was my pleasure.", L_My_Pleasure;
-        close;
 
 L_Reward_Returning:
         mes "[Gak]";
@@ -507,6 +516,7 @@ L_Gaks_Little_Shop:
         mes "";
         mes "\"You have " + hween10_credits + " creditsss. Tell me what you'd like to buy - or asssk me about it. Sssome of thessse itemsss have very interesssting ssstories attached to them.\"";
         next;
+        goto L_Shop_Inventory;
 
 L_Shop_Inventory:
         menu
