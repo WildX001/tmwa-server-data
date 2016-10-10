@@ -13,6 +13,7 @@ L_Live:
         "Set Old Event Flag.", L_LastReset,
         "Halloween Time Key Change.", L_HalloweenTimeKey,
         "Reset NPC's mask memory", L_ResetMask,
+        "Set $hween16 value", L_HalloweenValue,
         "Nothing.", L_Close;
 
 L_Debug:
@@ -39,6 +40,21 @@ L_DebugTime:
 L_LastReset:
     set HALLOWEENTIME, 255;
     set HALLOWEENYEAR, 2012;
+    goto L_Debug;
+
+L_HalloweenValue:
+    mes "$hween16 value"
+    mes "0 is first phase"
+    mes "1 is seconde phase"
+    mes "2 is event finish"
+    mes "Set value"
+    input @hweenvalue;
+    if ((@hweenvalue >= 0) && (@hweenvalue <=2))
+    {
+        set $hween16, @hweenvalue;
+        goto L_Debug;
+    }
+    mes "Wrong range for $hween16 value"
     goto L_Debug;
 
 L_HalloweenTimeKey:
