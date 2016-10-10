@@ -50,12 +50,11 @@ L_HalloweenValue:
     mes "2 is event finish";
     mes "Set value";
     input @hweenvalue;
-    if ((@hweenvalue >= 0) && (@hweenvalue <=2))
-    {
-        set HWEEN16, @hweenvalue;
-        goto L_Debug;
-    }
-    mes "Wrong range for HWEEN16 value";
+
+    if ((@hweenvalue < 0) || (@hweenvalue >2)) 
+        goto L_HalloweenError;
+
+    set HWEEN16, @hweenvalue;
     goto L_Debug;
 
 L_HalloweenTimeKey:
