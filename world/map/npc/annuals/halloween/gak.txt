@@ -369,7 +369,7 @@ L_Sweets_Menu:
                 @menuitems$[1], L_Sweets_Menu_Select,
                 @menuitems$[2], L_Sweets_Menu_Select,
                 @menuitems$[3], L_Sweets_Menu_Select,
-                @menuitems$[4], L_Sweets_Menu_Select,
+                @menuitems$[4], L_Sweets_Menu_Select;
 
 L_Sweets_Menu_Select:
         set @menu, @menu -1;
