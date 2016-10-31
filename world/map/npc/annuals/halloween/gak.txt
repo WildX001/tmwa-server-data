@@ -520,8 +520,8 @@ L_Gaks_Little_Shop:
 
 L_Shop_Inventory:
         menu
-                "Blinking Evil Mask (15,000 credits)", L_Buy_BlinkingEvilMask,
-                "Tell me about the Blinking Evil Mask", L_Info_BlinkingEvilMask,
+                "The Mask of Blinking Evil (15,000 credits)", L_Buy_BlinkingEvil,
+                "Tell me about the Mask of Blinking Evil ", L_Info_BlinkingEvil,
                 "Opera Mask (9,000 credits)", L_Buy_OperaMask,
                 "Tell me about the Opera Mask.", L_Info_OperaMask,
                 "Jester Mask (7,000 credits)", L_Buy_JesterMask,
@@ -540,7 +540,7 @@ L_Shop_Inventory:
                 "Tell me about Bone Arrows.", L_Info_BoneArrow,
                 "Nothing today, thanks.", L_Close;
 
-L_Buy_BlinkingEvilMask:
+L_Buy_BlinkingEvil:
         if (hween16_credits < 15000) goto L_Too_Few_Credits;
         mes "[Gak]";
         mes "";
@@ -548,13 +548,13 @@ L_Buy_BlinkingEvilMask:
         next;
         mes "[Gak]";
         mes "";
-        mes "\"Are you sssure you want to buy the Blinking Evil Masssk?\"";
+        mes "\"Are you sssure you want to buy the Masssk of Blinking Evil ?\"";
         next;
         menu
-                "Yes.", L_Buy_BlinkingEvilMask_Yes,
+                "Yes.", L_Buy_BlinkingEvil_Yes,
                 "No.", L_Gaks_Little_Shop;
 
-L_Buy_BlinkingEvilMask_Yes:
+L_Buy_BlinkingEvil_Yes:
         getinventorylist;
         if (@inventorylist_count == 100) goto L_Full_Inventory;
         if (hween16_credits < 15000) goto L_Too_Few_Credits;
@@ -813,7 +813,7 @@ L_Too_Few_Credits:
         next;
         goto L_Gaks_Little_Shop;
 
-L_Info_BlinkingEvilMask:
+L_Info_BlinkingEvil:
        mes "[Gak]";
        mes "\" blah blah blah \"";
        next;
