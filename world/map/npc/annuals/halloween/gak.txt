@@ -544,7 +544,7 @@ L_Buy_BlinkingEvil:
         if (hween16_credits < 15000) goto L_Too_Few_Credits;
         mes "[Gak]";
         mes "";
-        mes "\"blah blah blah\"";
+        mes "\"A little expensive, but you will not regret it \"";
         next;
         mes "[Gak]";
         mes "";
